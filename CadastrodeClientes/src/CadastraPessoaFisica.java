@@ -8,12 +8,12 @@
  *
  * @author comp1
  */
-public class PessoaFisica extends javax.swing.JInternalFrame {
+public class CadastraPessoaFisica extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form PessoaFisica
      */
-    public PessoaFisica() {
+    public CadastraPessoaFisica() {
         initComponents();
     }
 
@@ -34,6 +34,9 @@ public class PessoaFisica extends javax.swing.JInternalFrame {
         cancelarfisico = new javax.swing.JButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setTitle("Cadastrar Pessoa Física");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setText("Nome:");
 
@@ -51,9 +54,14 @@ public class PessoaFisica extends javax.swing.JInternalFrame {
             }
         });
 
-        salvarfisico.setText("Salvar");
+        salvarfisico.setText("Cadastrar");
 
         cancelarfisico.setText("Cancelar");
+        cancelarfisico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarfisicoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,7 +78,7 @@ public class PessoaFisica extends javax.swing.JInternalFrame {
                     .addComponent(campocpf))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 102, Short.MAX_VALUE)
+                .addGap(0, 84, Short.MAX_VALUE)
                 .addComponent(salvarfisico)
                 .addGap(18, 18, 18)
                 .addComponent(cancelarfisico)
@@ -104,6 +112,10 @@ public class PessoaFisica extends javax.swing.JInternalFrame {
     private void campocpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campocpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campocpfActionPerformed
+
+    private void cancelarfisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarfisicoActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_cancelarfisicoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
