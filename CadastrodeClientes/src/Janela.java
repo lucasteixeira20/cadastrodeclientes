@@ -1,20 +1,21 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-import javax.swing.JDesktopPane;
-
+/**
+ *
+ * @author comp1
+ */
 public class Janela extends javax.swing.JFrame {
 
-    private JDesktopPane desktop = new JDesktopPane();
-    private CadastraPessoaFisica cadastrarPF = new CadastraPessoaFisica();
-    private CadastraPessoaJuridica cadastrarPJ = new CadastraPessoaJuridica();
-
+    /**
+     * Creates new form Login
+     */
     public Janela() {
         initComponents();
-        setLocationRelativeTo(null);
-        setContentPane(desktop);
-
-        // Adiciona janelas internas ao desktoppane
-        desktop.add(cadastrarPF);
-        desktop.add(cadastrarPJ);
+        
     }
 
     /**
@@ -42,9 +43,8 @@ public class Janela extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gerenciador de Clientes");
 
-        menucadastro.setText("Cadastrar");
+        menucadastro.setText("Cadastro");
 
         menupessoafisica.setText("Pessoa Fisica");
         menupessoafisica.addActionListener(new java.awt.event.ActionListener() {
@@ -99,10 +99,7 @@ public class Janela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menupessoafisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menupessoafisicaActionPerformed
-        // Centralizar janela
-        cadastrarPF.setLocation(getWidth() / 2 - cadastrarPF.getWidth() / 2, getHeight() / 2 - cadastrarPF.getHeight() / 2);
-        // Tornar janela visível
-        cadastrarPF.setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_menupessoafisicaActionPerformed
 
     private void menualterardadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menualterardadosActionPerformed
@@ -110,10 +107,7 @@ public class Janela extends javax.swing.JFrame {
     }//GEN-LAST:event_menualterardadosActionPerformed
 
     private void menupessoajuridicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menupessoajuridicaActionPerformed
-        // Centralizar janela
-        cadastrarPJ.setLocation(getWidth() / 2 - cadastrarPJ.getWidth() / 2, getHeight() / 2 - cadastrarPJ.getHeight() / 2);
-        // Tornar janela visível
-        cadastrarPJ.setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_menupessoajuridicaActionPerformed
 
     /**
