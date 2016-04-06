@@ -6,7 +6,8 @@ public class Janela extends javax.swing.JFrame {
     private JDesktopPane desktop = new JDesktopPane();
     private CadastraPessoaFisica cadastrarPF = new CadastraPessoaFisica();
     private CadastraPessoaJuridica cadastrarPJ = new CadastraPessoaJuridica();
-
+    private ExcluirPessoaFisica excluirPF = new ExcluirPessoaFisica();
+    private ExcluirPessoaJuridica excluirPJ = new ExcluirPessoaJuridica();
     public Janela() {
         initComponents();
         setLocationRelativeTo(null);
@@ -15,6 +16,8 @@ public class Janela extends javax.swing.JFrame {
         // Adiciona janelas internas ao desktoppane
         desktop.add(cadastrarPF);
         desktop.add(cadastrarPJ);
+        desktop.add(excluirPF);
+        desktop.add(excluirPJ);
     }
 
     /**
@@ -33,8 +36,8 @@ public class Janela extends javax.swing.JFrame {
         menupessoafisica = new javax.swing.JMenuItem();
         menupessoajuridica = new javax.swing.JMenuItem();
         menuclientes = new javax.swing.JMenu();
-        menualterardados = new javax.swing.JMenuItem();
-        menuexcluircliente = new javax.swing.JMenuItem();
+        menu_excluirPF = new javax.swing.JMenuItem();
+        menu_excluirPJ = new javax.swing.JMenuItem();
         sobre = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
@@ -66,16 +69,21 @@ public class Janela extends javax.swing.JFrame {
 
         menuclientes.setText("Clientes");
 
-        menualterardados.setText("Alterar Dados");
-        menualterardados.addActionListener(new java.awt.event.ActionListener() {
+        menu_excluirPF.setText("Excluir Pessoa Física");
+        menu_excluirPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menualterardadosActionPerformed(evt);
+                menu_excluirPFActionPerformed(evt);
             }
         });
-        menuclientes.add(menualterardados);
+        menuclientes.add(menu_excluirPF);
 
-        menuexcluircliente.setText("Excluir Cliente");
-        menuclientes.add(menuexcluircliente);
+        menu_excluirPJ.setText("Excluir Pessoa Jurídica");
+        menu_excluirPJ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_excluirPJActionPerformed(evt);
+            }
+        });
+        menuclientes.add(menu_excluirPJ);
 
         jMenuBar1.add(menuclientes);
 
@@ -105,16 +113,26 @@ public class Janela extends javax.swing.JFrame {
         cadastrarPF.setVisible(true);
     }//GEN-LAST:event_menupessoafisicaActionPerformed
 
-    private void menualterardadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menualterardadosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menualterardadosActionPerformed
-
     private void menupessoajuridicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menupessoajuridicaActionPerformed
         // Centralizar janela
         cadastrarPJ.setLocation(getWidth() / 2 - cadastrarPJ.getWidth() / 2, getHeight() / 2 - cadastrarPJ.getHeight() / 2);
         // Tornar janela visível
         cadastrarPJ.setVisible(true);
     }//GEN-LAST:event_menupessoajuridicaActionPerformed
+
+    private void menu_excluirPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_excluirPJActionPerformed
+        // Centralizar janela
+        excluirPJ.setLocation(getWidth() / 2 - excluirPJ.getWidth() / 2, getHeight() / 2 - excluirPJ.getHeight() / 2);
+        // Tornar janela visível
+        excluirPJ.setVisible(true);
+    }//GEN-LAST:event_menu_excluirPJActionPerformed
+
+    private void menu_excluirPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_excluirPFActionPerformed
+        // Centralizar janela
+        excluirPF.setLocation(getWidth() / 2 - excluirPF.getWidth() / 2, getHeight() / 2 - excluirPF.getHeight() / 2);
+        // Tornar janela visível
+        excluirPF.setVisible(true);
+    }//GEN-LAST:event_menu_excluirPFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,10 +174,10 @@ public class Janela extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem menualterardados;
+    private javax.swing.JMenuItem menu_excluirPF;
+    private javax.swing.JMenuItem menu_excluirPJ;
     private javax.swing.JMenu menucadastro;
     private javax.swing.JMenu menuclientes;
-    private javax.swing.JMenuItem menuexcluircliente;
     private javax.swing.JMenuItem menupessoafisica;
     private javax.swing.JMenuItem menupessoajuridica;
     private javax.swing.JMenu sobre;

@@ -20,7 +20,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="menucadastro">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastro"/>
+            <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menupessoafisica">
@@ -46,18 +46,21 @@
             <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menualterardados">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_excluirPF">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Alterar Dados"/>
+                <Property name="text" type="java.lang.String" value="Excluir Pessoa F&#xed;sica"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menualterardadosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_excluirPFActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuexcluircliente">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_excluirPJ">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Excluir Cliente"/>
+                <Property name="text" type="java.lang.String" value="Excluir Pessoa Jur&#xed;dica"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_excluirPJActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -71,6 +74,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Gerenciador de Clientes"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
