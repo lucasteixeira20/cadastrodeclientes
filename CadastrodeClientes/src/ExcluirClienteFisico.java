@@ -8,12 +8,12 @@
  *
  * @author Lucas
  */
-public class ExcluirPessoaFisica extends javax.swing.JInternalFrame {
+public class ExcluirClienteFisico extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ExcluirClienteJuridico
+     * Creates new form ExcluirClienteFisico
      */
-    public ExcluirPessoaFisica() {
+    public ExcluirClienteFisico() {
         initComponents();
     }
 
@@ -28,21 +28,19 @@ public class ExcluirPessoaFisica extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         cpfexcluir = new javax.swing.JTextField();
-        excluirjuridico = new javax.swing.JButton();
-        cancelarjuridico = new javax.swing.JButton();
+        excluirfisico = new javax.swing.JButton();
+        cancelarexcluirfisico = new javax.swing.JButton();
 
         setClosable(true);
-        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
-        setTitle("Excluir Pessoa Física");
 
-        jLabel1.setText("Insira o CPF:");
+        jLabel1.setText("Insira o CPF a ser excluido:");
 
-        excluirjuridico.setText("Excluir");
+        excluirfisico.setText("Excluir");
 
-        cancelarjuridico.setText("Cancelar");
-        cancelarjuridico.addActionListener(new java.awt.event.ActionListener() {
+        cancelarexcluirfisico.setText("Cancelar");
+        cancelarexcluirfisico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarjuridicoActionPerformed(evt);
+                cancelarexcluirfisicoActionPerformed(evt);
             }
         });
 
@@ -51,44 +49,45 @@ public class ExcluirPessoaFisica extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(excluirfisico)
+                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(excluirjuridico)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cpfexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(80, 80, 80)
-                        .addComponent(cancelarjuridico))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cpfexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                        .addComponent(cancelarexcluirfisico)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(107, 107, 107)
+                .addGap(101, 101, 101)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cpfexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(excluirjuridico)
-                    .addComponent(cancelarjuridico))
-                .addGap(48, 48, 48))
+                    .addComponent(excluirfisico)
+                    .addComponent(cancelarexcluirfisico))
+                .addGap(63, 63, 63))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cancelarjuridicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarjuridicoActionPerformed
-        setVisible(false);
-    }//GEN-LAST:event_cancelarjuridicoActionPerformed
+    private void cancelarexcluirfisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarexcluirfisicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelarexcluirfisicoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancelarjuridico;
+    private javax.swing.JButton cancelarexcluirfisico;
     private javax.swing.JTextField cpfexcluir;
-    private javax.swing.JButton excluirjuridico;
+    private javax.swing.JButton excluirfisico;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

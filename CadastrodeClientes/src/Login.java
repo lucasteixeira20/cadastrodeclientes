@@ -1,12 +1,7 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author comp1
- */
+
+import javax.swing.JDesktopPane;
+
+
 public class Login extends javax.swing.JFrame {
 
     /**
@@ -14,7 +9,6 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        setLocationRelativeTo(null);
     }
 
     /**
@@ -35,7 +29,6 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login");
 
         jLabel1.setText("Login:");
 
@@ -117,6 +110,7 @@ public class Login extends javax.swing.JFrame {
             //add(desktop);
 
             dispose();
+
             Janela janela = new Janela();
 
             //desktop.add(janela);

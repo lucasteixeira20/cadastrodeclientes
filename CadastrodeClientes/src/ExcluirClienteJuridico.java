@@ -8,12 +8,12 @@
  *
  * @author Lucas
  */
-public class ExcluirPessoaJuridica extends javax.swing.JInternalFrame {
+public class ExcluirClienteJuridico extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ExcluirClienteJuridico
      */
-    public ExcluirPessoaJuridica() {
+    public ExcluirClienteJuridico() {
         initComponents();
     }
 
@@ -32,10 +32,8 @@ public class ExcluirPessoaJuridica extends javax.swing.JInternalFrame {
         cancelarjuridico = new javax.swing.JButton();
 
         setClosable(true);
-        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
-        setTitle("Excluir Pessoa Jurídica");
 
-        jLabel1.setText("Insira o CNPJ:");
+        jLabel1.setText("Insira o CNPJ a ser excluido:");
 
         excluirjuridico.setText("Excluir");
 
@@ -51,17 +49,18 @@ public class ExcluirPessoaJuridica extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(excluirjuridico)
-                        .addGap(80, 80, 80)
-                        .addComponent(cancelarjuridico))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cnpjexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(89, Short.MAX_VALUE))
+                        .addComponent(cnpjexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(excluirjuridico)
+                        .addGap(80, 80, 80)
+                        .addComponent(cancelarjuridico)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,7 +69,7 @@ public class ExcluirPessoaJuridica extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cnpjexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(excluirjuridico)
                     .addComponent(cancelarjuridico))
@@ -81,7 +80,7 @@ public class ExcluirPessoaJuridica extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarjuridicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarjuridicoActionPerformed
-        setVisible(false);
+        // TODO add your handling code here:
     }//GEN-LAST:event_cancelarjuridicoActionPerformed
 
 
