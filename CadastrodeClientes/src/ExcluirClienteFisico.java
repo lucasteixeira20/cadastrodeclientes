@@ -32,6 +32,8 @@ public class ExcluirClienteFisico extends javax.swing.JInternalFrame {
         cancelarexcluirfisico = new javax.swing.JButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setTitle("Excluir Cliente Físico");
 
         jLabel1.setText("Insira o CPF a ser excluido:");
 

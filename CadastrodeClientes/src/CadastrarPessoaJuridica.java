@@ -8,12 +8,12 @@
  *
  * @author Lucas
  */
-public class PessoaJuridica extends javax.swing.JInternalFrame {
+public class CadastrarPessoaJuridica extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form PessoaJuridica
      */
-    public PessoaJuridica() {
+    public CadastrarPessoaJuridica() {
         initComponents();
     }
 
@@ -34,6 +34,8 @@ public class PessoaJuridica extends javax.swing.JInternalFrame {
         cancelarjuridico = new javax.swing.JButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setTitle("Cadastrar Pessoa Jurídica");
 
         jLabel1.setText("Razão social:");
 

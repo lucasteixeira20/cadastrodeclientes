@@ -8,12 +8,12 @@
  *
  * @author comp1
  */
-public class PessoaFisica extends javax.swing.JInternalFrame {
+public class CadastrarPessoaFisica extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form PessoaFisica
      */
-    public PessoaFisica() {
+    public CadastrarPessoaFisica() {
         initComponents();
     }
 
@@ -34,6 +34,8 @@ public class PessoaFisica extends javax.swing.JInternalFrame {
         cancelarfisico = new javax.swing.JButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setTitle("Cadastrar Pessoa Física");
 
         jLabel1.setText("Nome:");
 

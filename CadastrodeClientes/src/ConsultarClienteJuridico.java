@@ -32,6 +32,8 @@ public class ConsultarClienteJuridico extends javax.swing.JInternalFrame {
         cancelarconsultajuridico = new javax.swing.JButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setTitle("Consultar Cliente Jurídico");
 
         jLabel1.setText("Insira o CNPJ do Cliente a ser consultado:");
 

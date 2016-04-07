@@ -19,6 +19,8 @@ public class ConsultarClienteFisico extends javax.swing.JInternalFrame {
         cancelarconsultacpf = new javax.swing.JButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setTitle("Consultar Cliente Físico");
 
         jLabel1.setText("Insira o CPF do Cliente a ser consultado:");
 

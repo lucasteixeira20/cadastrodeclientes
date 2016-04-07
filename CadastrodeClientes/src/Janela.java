@@ -1,22 +1,16 @@
 
 import javax.swing.JDesktopPane;
 
-
-
-/**
- *
- * @author comp1
- */
 public class Janela extends javax.swing.JFrame {
 
-   private JDesktopPane desktop = new JDesktopPane();
-    private PessoaFisica cadastrarPF = new PessoaFisica();
-    private PessoaJuridica cadastrarPJ = new PessoaJuridica();
+    private JDesktopPane desktop = new JDesktopPane();
+    private CadastrarPessoaFisica cadastrarPF = new CadastrarPessoaFisica();
+    private CadastrarPessoaJuridica cadastrarPJ = new CadastrarPessoaJuridica();
     private ExcluirClienteJuridico excluirPJ = new ExcluirClienteJuridico();
     private ExcluirClienteFisico excluirPF = new ExcluirClienteFisico();
     private ConsultarClienteFisico consultaPF = new ConsultarClienteFisico();
     private ConsultarClienteJuridico consultaPJ = new ConsultarClienteJuridico();
-    
+
     public Janela() {
         initComponents();
         setLocationRelativeTo(null);
@@ -25,13 +19,12 @@ public class Janela extends javax.swing.JFrame {
         // Adiciona janelas internas ao desktoppane
         desktop.add(cadastrarPF);
         desktop.add(cadastrarPJ);
-         desktop.add(excluirPJ);
-         desktop.add(excluirPF);
-         desktop.add(consultaPF);
-         desktop.add(consultaPJ);
+        desktop.add(excluirPJ);
+        desktop.add(excluirPF);
+        desktop.add(consultaPF);
+        desktop.add(consultaPJ);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -54,6 +47,7 @@ public class Janela extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gerenciador de Clientes");
 
         menucadastro.setText("Cadastro");
 
@@ -131,7 +125,7 @@ public class Janela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menupessoafisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menupessoafisicaActionPerformed
-         // Centralizar janela
+        // Centralizar janela
         cadastrarPF.setLocation(getWidth() / 2 - cadastrarPF.getWidth() / 2, getHeight() / 2 - cadastrarPF.getHeight() / 2);
         // Tornar janela visível
         cadastrarPF.setVisible(true);
@@ -145,28 +139,28 @@ public class Janela extends javax.swing.JFrame {
     }//GEN-LAST:event_menuexcluirclienteFiActionPerformed
 
     private void menupessoajuridicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menupessoajuridicaActionPerformed
-      // Centralizar janela
+        // Centralizar janela
         cadastrarPJ.setLocation(getWidth() / 2 - cadastrarPJ.getWidth() / 2, getHeight() / 2 - cadastrarPJ.getHeight() / 2);
         // Tornar janela visível
         cadastrarPJ.setVisible(true);
     }//GEN-LAST:event_menupessoajuridicaActionPerformed
 
     private void menuconsultarjuridicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultarjuridicoActionPerformed
-       // Centralizar janela
+        // Centralizar janela
         consultaPJ.setLocation(getWidth() / 2 - consultaPJ.getWidth() / 2, getHeight() / 2 - consultaPJ.getHeight() / 2);
         // Tornar janela visível
         consultaPJ.setVisible(true);
     }//GEN-LAST:event_menuconsultarjuridicoActionPerformed
 
     private void menuconsultarfisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultarfisicoActionPerformed
-         // Centralizar janela
+        // Centralizar janela
         consultaPF.setLocation(getWidth() / 2 - consultaPF.getWidth() / 2, getHeight() / 2 - consultaPF.getHeight() / 2);
         // Tornar janela visível
         consultaPF.setVisible(true);
     }//GEN-LAST:event_menuconsultarfisicoActionPerformed
 
     private void menuexcluirclienteJuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuexcluirclienteJuActionPerformed
-         // Centralizar janela
+        // Centralizar janela
         excluirPJ.setLocation(getWidth() / 2 - excluirPJ.getWidth() / 2, getHeight() / 2 - excluirPJ.getHeight() / 2);
         // Tornar janela visível
         excluirPJ.setVisible(true);
@@ -198,7 +192,7 @@ public class Janela extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Janela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Janela().setVisible(true);

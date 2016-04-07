@@ -32,6 +32,8 @@ public class ExcluirClienteJuridico extends javax.swing.JInternalFrame {
         cancelarjuridico = new javax.swing.JButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setTitle("Excluir Cliente Jurídico");
 
         jLabel1.setText("Insira o CNPJ a ser excluido:");
 
