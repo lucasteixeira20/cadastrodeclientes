@@ -1,6 +1,7 @@
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
@@ -109,7 +110,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarloginActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_cancelarloginActionPerformed
 
     private void entrarloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarloginActionPerformed
@@ -119,7 +120,9 @@ public class Login extends javax.swing.JFrame {
 
             janela.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(null, "Login ou senha incorretos!", "Erro", JOptionPane.ERROR_MESSAGE);
+            final JDialog erro = new JDialog();
+            erro.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(erro, "Login ou senha incorretos!", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_entrarloginActionPerformed
 

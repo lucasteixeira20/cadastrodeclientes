@@ -1,5 +1,6 @@
 
 import javax.swing.JDesktopPane;
+import javax.swing.JMenuItem;
 
 public class Janela extends javax.swing.JFrame {
 
@@ -10,12 +11,20 @@ public class Janela extends javax.swing.JFrame {
     private ExcluirClienteFisico excluirPF = new ExcluirClienteFisico();
     private ConsultarClienteFisico consultaPF = new ConsultarClienteFisico();
     private ConsultarClienteJuridico consultaPJ = new ConsultarClienteJuridico();
-
     public Janela() {
         initComponents();
         setLocationRelativeTo(null);
         setContentPane(desktop);
-
+        
+        // Instanciado classe de eventos
+        EventosJanela events = new EventosJanela(this);
+        menupessoafisica.addActionListener(events);
+        menupessoajuridica.addActionListener(events);
+        menuconsultarfisico.addActionListener(events);
+        menuconsultarjuridico.addActionListener(events);
+        menuexcluirclienteFi.addActionListener(events);
+        menuexcluirclienteJu.addActionListener(events);
+        
         // Adiciona janelas internas ao desktoppane
         desktop.add(cadastrarPF);
         desktop.add(cadastrarPJ);
@@ -24,7 +33,44 @@ public class Janela extends javax.swing.JFrame {
         desktop.add(consultaPF);
         desktop.add(consultaPJ);
     }
-
+    
+    public CadastrarPessoaFisica getcadastrarPF(){
+        return cadastrarPF;
+    }
+    public CadastrarPessoaJuridica getcadastrarPJ(){
+        return cadastrarPJ;
+    }
+    public ConsultarClienteFisico getconsultaPF(){
+        return consultaPF;
+    }
+    public ConsultarClienteJuridico getconsultaPJ(){
+        return consultaPJ;
+    }
+    public ExcluirClienteFisico getexcluirPF(){
+        return excluirPF;
+    }
+    public ExcluirClienteJuridico getexcluirPJ(){
+        return excluirPJ;
+    }
+    public JMenuItem getmenupessoafisica(){
+        return menupessoafisica;
+    }
+    public JMenuItem getmenupessoajuridica(){
+        return menupessoajuridica;
+    }
+    public JMenuItem getmenuconsultarfisico(){
+        return menuconsultarfisico;
+    }
+    public JMenuItem getmenuconsultarjuridico(){
+        return menuconsultarjuridico;
+    }
+    public JMenuItem getmenuexcluirclienteFi(){
+        return menuexcluirclienteFi;
+    }
+    public JMenuItem getmenuexcluirclienteJu(){
+        return menuexcluirclienteJu;
+    }
+            
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -52,19 +98,9 @@ public class Janela extends javax.swing.JFrame {
         menucadastro.setText("Cadastro");
 
         menupessoafisica.setText("Pessoa Fisica");
-        menupessoafisica.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menupessoafisicaActionPerformed(evt);
-            }
-        });
         menucadastro.add(menupessoafisica);
 
         menupessoajuridica.setText("Pessoa Juridica");
-        menupessoajuridica.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menupessoajuridicaActionPerformed(evt);
-            }
-        });
         menucadastro.add(menupessoajuridica);
 
         jMenuBar1.add(menucadastro);
@@ -72,35 +108,15 @@ public class Janela extends javax.swing.JFrame {
         menuclientes.setText("Clientes");
 
         menuconsultarfisico.setText("Consultar Cliente Fisico");
-        menuconsultarfisico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuconsultarfisicoActionPerformed(evt);
-            }
-        });
         menuclientes.add(menuconsultarfisico);
 
         menuconsultarjuridico.setText("Consultar Cliente Juridico");
-        menuconsultarjuridico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuconsultarjuridicoActionPerformed(evt);
-            }
-        });
         menuclientes.add(menuconsultarjuridico);
 
         menuexcluirclienteFi.setText("Excluir Cliente Fisico");
-        menuexcluirclienteFi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuexcluirclienteFiActionPerformed(evt);
-            }
-        });
         menuclientes.add(menuexcluirclienteFi);
 
         menuexcluirclienteJu.setText("Excluir Cliente Juridico");
-        menuexcluirclienteJu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuexcluirclienteJuActionPerformed(evt);
-            }
-        });
         menuclientes.add(menuexcluirclienteJu);
 
         jMenuBar1.add(menuclientes);
@@ -123,48 +139,6 @@ public class Janela extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void menupessoafisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menupessoafisicaActionPerformed
-        // Centralizar janela
-        cadastrarPF.setLocation(getWidth() / 2 - cadastrarPF.getWidth() / 2, getHeight() / 2 - cadastrarPF.getHeight() / 2);
-        // Tornar janela visível
-        cadastrarPF.setVisible(true);
-    }//GEN-LAST:event_menupessoafisicaActionPerformed
-
-    private void menuexcluirclienteFiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuexcluirclienteFiActionPerformed
-        // Centralizar janela
-        excluirPF.setLocation(getWidth() / 2 - excluirPF.getWidth() / 2, getHeight() / 2 - excluirPF.getHeight() / 2);
-        // Tornar janela visível
-        excluirPF.setVisible(true);
-    }//GEN-LAST:event_menuexcluirclienteFiActionPerformed
-
-    private void menupessoajuridicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menupessoajuridicaActionPerformed
-        // Centralizar janela
-        cadastrarPJ.setLocation(getWidth() / 2 - cadastrarPJ.getWidth() / 2, getHeight() / 2 - cadastrarPJ.getHeight() / 2);
-        // Tornar janela visível
-        cadastrarPJ.setVisible(true);
-    }//GEN-LAST:event_menupessoajuridicaActionPerformed
-
-    private void menuconsultarjuridicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultarjuridicoActionPerformed
-        // Centralizar janela
-        consultaPJ.setLocation(getWidth() / 2 - consultaPJ.getWidth() / 2, getHeight() / 2 - consultaPJ.getHeight() / 2);
-        // Tornar janela visível
-        consultaPJ.setVisible(true);
-    }//GEN-LAST:event_menuconsultarjuridicoActionPerformed
-
-    private void menuconsultarfisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultarfisicoActionPerformed
-        // Centralizar janela
-        consultaPF.setLocation(getWidth() / 2 - consultaPF.getWidth() / 2, getHeight() / 2 - consultaPF.getHeight() / 2);
-        // Tornar janela visível
-        consultaPF.setVisible(true);
-    }//GEN-LAST:event_menuconsultarfisicoActionPerformed
-
-    private void menuexcluirclienteJuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuexcluirclienteJuActionPerformed
-        // Centralizar janela
-        excluirPJ.setLocation(getWidth() / 2 - excluirPJ.getWidth() / 2, getHeight() / 2 - excluirPJ.getHeight() / 2);
-        // Tornar janela visível
-        excluirPJ.setVisible(true);
-    }//GEN-LAST:event_menuexcluirclienteJuActionPerformed
 
     /**
      * @param args the command line arguments

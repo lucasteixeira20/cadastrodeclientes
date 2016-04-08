@@ -27,17 +27,11 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pessoa Fisica"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menupessoafisicaActionPerformed"/>
-              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menupessoajuridica">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pessoa Juridica"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menupessoajuridicaActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -50,33 +44,21 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Consultar Cliente Fisico"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuconsultarfisicoActionPerformed"/>
-              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuconsultarjuridico">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Consultar Cliente Juridico"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuconsultarjuridicoActionPerformed"/>
-              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuexcluirclienteFi">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Excluir Cliente Fisico"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuexcluirclienteFiActionPerformed"/>
-              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuexcluirclienteJu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Excluir Cliente Juridico"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuexcluirclienteJuActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
