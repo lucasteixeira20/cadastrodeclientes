@@ -1,10 +1,10 @@
 
 // * @author Lucas
  
-public class ConsultarClienteFisico extends javax.swing.JInternalFrame {
+public class AlterarClienteFisico extends javax.swing.JInternalFrame {
 
-    private EventoConsultarFisico eventF = new EventoConsultarFisico(this);
-    public ConsultarClienteFisico() {
+    private EventoAlterarFisico eventAF = new EventoAlterarFisico(this);
+    public AlterarClienteFisico() {
         initComponents();
     }
 
@@ -15,26 +15,26 @@ public class ConsultarClienteFisico extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         campoconsultacpf = new javax.swing.JTextField();
-        consultarcpf = new javax.swing.JButton();
+        alterarclienteF = new javax.swing.JButton();
         cancelarconsultacpf = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
-        setTitle("Consultar Cliente Físico");
+        setTitle("Alterar Cliente Físico");
 
-        jLabel1.setText("Insira o CPF do Cliente a ser consultado:");
+        jLabel1.setText("Insira o CPF do Cliente a ser alterado:");
 
-        consultarcpf.setText("Consultar");
-        consultarcpf.addActionListener(new java.awt.event.ActionListener() {
+        alterarclienteF.setText("Alterar");
+        alterarclienteF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultarcpfActionPerformed(evt);
+                alterarclienteFActionPerformed(evt);
             }
         });
-        consultarcpf.addActionListener(eventF);
-        consultarcpf.setActionCommand("consultar");
+        alterarclienteF.addActionListener(eventAF);
+        alterarclienteF.setActionCommand("alterar");
 
         cancelarconsultacpf.setText("Cancelar");
-        cancelarconsultacpf.addActionListener(eventF);
+        cancelarconsultacpf.addActionListener(eventAF);
         cancelarconsultacpf.setActionCommand("cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -49,8 +49,8 @@ public class ConsultarClienteFisico extends javax.swing.JInternalFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(79, 79, 79)
-                .addComponent(consultarcpf)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addComponent(alterarclienteF)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(cancelarconsultacpf)
                 .addGap(76, 76, 76))
         );
@@ -63,7 +63,7 @@ public class ConsultarClienteFisico extends javax.swing.JInternalFrame {
                     .addComponent(campoconsultacpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(consultarcpf)
+                    .addComponent(alterarclienteF)
                     .addComponent(cancelarconsultacpf))
                 .addGap(59, 59, 59))
         );
@@ -71,15 +71,15 @@ public class ConsultarClienteFisico extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void consultarcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarcpfActionPerformed
+    private void alterarclienteFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarclienteFActionPerformed
      
-    }//GEN-LAST:event_consultarcpfActionPerformed
+    }//GEN-LAST:event_alterarclienteFActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton alterarclienteF;
     private javax.swing.JTextField campoconsultacpf;
     private javax.swing.JButton cancelarconsultacpf;
-    private javax.swing.JButton consultarcpf;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

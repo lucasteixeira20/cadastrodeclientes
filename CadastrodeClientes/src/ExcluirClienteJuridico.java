@@ -10,9 +10,7 @@
  */
 public class ExcluirClienteJuridico extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ExcluirClienteJuridico
-     */
+    private EventoExcluirJuridico eventEJ = new EventoExcluirJuridico(this);
     public ExcluirClienteJuridico() {
         initComponents();
     }
@@ -38,6 +36,8 @@ public class ExcluirClienteJuridico extends javax.swing.JInternalFrame {
         jLabel1.setText("Insira o CNPJ a ser excluido:");
 
         excluirjuridico.setText("Excluir");
+        excluirjuridico.addActionListener(eventEJ);
+        excluirjuridico.setActionCommand("excluir");
 
         cancelarjuridico.setText("Cancelar");
         cancelarjuridico.addActionListener(new java.awt.event.ActionListener() {
@@ -45,6 +45,8 @@ public class ExcluirClienteJuridico extends javax.swing.JInternalFrame {
                 cancelarjuridicoActionPerformed(evt);
             }
         });
+        cancelarjuridico.addActionListener(eventEJ);
+        cancelarjuridico.setActionCommand("cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

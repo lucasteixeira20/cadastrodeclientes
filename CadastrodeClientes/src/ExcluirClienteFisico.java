@@ -1,18 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Lucas
- */
 public class ExcluirClienteFisico extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ExcluirClienteFisico
-     */
+    private EventoExcluirFisico eventEF = new EventoExcluirFisico(this);
     public ExcluirClienteFisico() {
         initComponents();
     }
@@ -38,6 +27,8 @@ public class ExcluirClienteFisico extends javax.swing.JInternalFrame {
         jLabel1.setText("Insira o CPF a ser excluido:");
 
         excluirfisico.setText("Excluir");
+        excluirfisico.addActionListener(eventEF);
+        excluirfisico.setActionCommand("excluir");
 
         cancelarexcluirfisico.setText("Cancelar");
         cancelarexcluirfisico.addActionListener(new java.awt.event.ActionListener() {
@@ -45,6 +36,8 @@ public class ExcluirClienteFisico extends javax.swing.JInternalFrame {
                 cancelarexcluirfisicoActionPerformed(evt);
             }
         });
+        cancelarexcluirfisico.addActionListener(eventEF);
+        cancelarexcluirfisico.setActionCommand("cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

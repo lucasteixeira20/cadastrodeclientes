@@ -70,11 +70,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Consultar"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="consultarcnpj.addActionListener(eventJ);&#xa;consultarcnpj.setActionCommand(&quot;consultar&quot;);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="cancelarconsultajuridico">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="cancelarconsultajuridico.addActionListener(eventJ);&#xa;cancelarconsultajuridico.setActionCommand(&quot;cancelar&quot;);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

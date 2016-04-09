@@ -1,18 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author comp1
- */
 public class CadastrarPessoaFisica extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form PessoaFisica
-     */
+private EventoCadastroFisico eventCF = new EventoCadastroFisico(this);
+
     public CadastrarPessoaFisica() {
         initComponents();
     }
@@ -32,6 +22,10 @@ public class CadastrarPessoaFisica extends javax.swing.JInternalFrame {
         campocpf = new javax.swing.JTextField();
         salvarfisico = new javax.swing.JButton();
         cancelarfisico = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        campotelefonef = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        campoemailf = new javax.swing.JTextField();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -54,34 +48,62 @@ public class CadastrarPessoaFisica extends javax.swing.JInternalFrame {
         });
 
         salvarfisico.setText("Salvar");
+        salvarfisico.addActionListener(eventCF);
+        salvarfisico.setActionCommand("salvar");
 
         cancelarfisico.setText("Cancelar");
+        cancelarfisico.addActionListener(eventCF);
+        cancelarfisico.setActionCommand("cancelar");
+
+        jLabel3.setText("Telefone:");
+
+        campotelefonef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campotelefonefActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Email:");
+
+        campoemailf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoemailfActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(camponomef, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                    .addComponent(campocpf))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 102, Short.MAX_VALUE)
-                .addComponent(salvarfisico)
-                .addGap(18, 18, 18)
-                .addComponent(cancelarfisico)
-                .addGap(103, 103, 103))
+                .addGap(0, 39, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(salvarfisico)
+                        .addGap(18, 18, 18)
+                        .addComponent(cancelarfisico)
+                        .addGap(103, 103, 103))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(campotelefonef)
+                            .addComponent(camponomef, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(campocpf, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                            .addComponent(campoemailf))
+                        .addGap(61, 61, 61))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(camponomef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -89,11 +111,19 @@ public class CadastrarPessoaFisica extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(campocpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campotelefonef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoemailf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelarfisico)
                     .addComponent(salvarfisico))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
@@ -107,13 +137,25 @@ public class CadastrarPessoaFisica extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campocpfActionPerformed
 
+    private void campotelefonefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campotelefonefActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campotelefonefActionPerformed
+
+    private void campoemailfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoemailfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoemailfActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campocpf;
+    private javax.swing.JTextField campoemailf;
     private javax.swing.JTextField camponomef;
+    private javax.swing.JTextField campotelefonef;
     private javax.swing.JButton cancelarfisico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton salvarfisico;
     // End of variables declaration//GEN-END:variables
 }

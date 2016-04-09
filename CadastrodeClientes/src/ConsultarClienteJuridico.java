@@ -1,18 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Lucas
- */
 public class ConsultarClienteJuridico extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ConsultaClienteJuridico
-     */
+    private EventoConsultarJuridico eventJ = new EventoConsultarJuridico(this);
     public ConsultarClienteJuridico() {
         initComponents();
     }
@@ -38,8 +27,12 @@ public class ConsultarClienteJuridico extends javax.swing.JInternalFrame {
         jLabel1.setText("Insira o CNPJ do Cliente a ser consultado:");
 
         consultarcnpj.setText("Consultar");
+        consultarcnpj.addActionListener(eventJ);
+        consultarcnpj.setActionCommand("consultar");
 
         cancelarconsultajuridico.setText("Cancelar");
+        cancelarconsultajuridico.addActionListener(eventJ);
+        cancelarconsultajuridico.setActionCommand("cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
