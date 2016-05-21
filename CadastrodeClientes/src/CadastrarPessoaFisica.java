@@ -1,7 +1,8 @@
+import java.io.IOException;
 
 public class CadastrarPessoaFisica extends javax.swing.JInternalFrame {
 
-private EventoCadastroFisico eventCF = new EventoCadastroFisico(this);
+    private CadastroFisicoListener eventCF = new CadastroFisicoListener(this);
 
     public CadastrarPessoaFisica() {
         initComponents();
@@ -40,16 +41,31 @@ private EventoCadastroFisico eventCF = new EventoCadastroFisico(this);
                 camponomefActionPerformed(evt);
             }
         });
+        camponomef.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                camponomefKeyTyped(evt);
+            }
+        });
 
         campocpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campocpfActionPerformed(evt);
             }
         });
+        campocpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campocpfKeyTyped(evt);
+            }
+        });
 
         salvarfisico.setText("Salvar");
         salvarfisico.addActionListener(eventCF);
         salvarfisico.setActionCommand("salvar");
+        salvarfisico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarfisicoActionPerformed(evt);
+            }
+        });
 
         cancelarfisico.setText("Cancelar");
         cancelarfisico.addActionListener(eventCF);
@@ -60,6 +76,11 @@ private EventoCadastroFisico eventCF = new EventoCadastroFisico(this);
         campotelefonef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campotelefonefActionPerformed(evt);
+            }
+        });
+        campotelefonef.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campotelefonefKeyTyped(evt);
             }
         });
 
@@ -145,7 +166,40 @@ private EventoCadastroFisico eventCF = new EventoCadastroFisico(this);
         // TODO add your handling code here:
     }//GEN-LAST:event_campoemailfActionPerformed
 
+    private void salvarfisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarfisicoActionPerformed
+        System.out.println("Salvou Pessoa Física");
+        try {
+            SalvaLogs.escrever("Cadastro Pessoa Física", "C:\\Users\\comp1\\Desktop\\logs.txt", true);
+        } catch (IOException ex) {
+            System.out.println("Erro");
+        }
+        ClienteFisico CF = new ClienteFisico();
+        CF.setNome(camponomef.getText());
+        CF.setCPF(campocpf.getText());
+        CF.setTelefone(campotelefonef.getText());
+        CF.setEmail(campoemailf.getText());
+    }//GEN-LAST:event_salvarfisicoActionPerformed
 
+    private void camponomefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_camponomefKeyTyped
+        String caracteres = "abcdefghijklmnopqrstuvwyxz ";// lista de caracters que devem ser aceitos
+        if (!caracteres.contains(evt.getKeyChar() + "")) {// se o caracter que gerou o evento estiver não estiver na lista
+            evt.consume();//aciona esse propriedade para eliminar a ação do evento
+        }
+    }//GEN-LAST:event_camponomefKeyTyped
+
+    private void campotelefonefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campotelefonefKeyTyped
+        String caracteres = "0987654321";// lista de caracters que devem ser aceitos
+        if (!caracteres.contains(evt.getKeyChar() + "")) {// se o caracter que gerou o evento estiver não estiver na lista
+            evt.consume();//aciona esse propriedade para eliminar a ação do evento
+        }
+    }//GEN-LAST:event_campotelefonefKeyTyped
+
+    private void campocpfKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campocpfKeyTyped
+        String caracteres = "0987654321";// lista de caracters que devem ser aceitos
+        if (!caracteres.contains(evt.getKeyChar() + "")) {// se o caracter que gerou o evento estiver não estiver na lista
+            evt.consume();//aciona esse propriedade para eliminar a ação do evento
+        }
+    }//GEN-LAST:event_campocpfKeyTyped
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campocpf;
     private javax.swing.JTextField campoemailf;

@@ -107,14 +107,21 @@
     <Component class="javax.swing.JTextField" name="campoRazaoSocial">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoRazaoSocialActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoRazaoSocialKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="campocnpj">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campocnpjKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="salvarjuridico">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salvarjuridicoActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="salvarjuridico.addActionListener(eventCJ);&#xa;salvarjuridico.setActionCommand(&quot;salvar&quot;);"/>
       </AuxValues>
@@ -138,6 +145,7 @@
     <Component class="javax.swing.JTextField" name="campotelefonej">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campotelefonejActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campotelefonejKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="campoemailj">

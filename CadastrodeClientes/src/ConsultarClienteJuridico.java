@@ -1,7 +1,12 @@
 
+
+
+import java.io.IOException;
+
+
 public class ConsultarClienteJuridico extends javax.swing.JInternalFrame {
 
-    private EventoConsultarJuridico eventJ = new EventoConsultarJuridico(this);
+    private ConsultarJuridicoListener eventJ = new ConsultarJuridicoListener(this);
     public ConsultarClienteJuridico() {
         initComponents();
     }
@@ -26,9 +31,20 @@ public class ConsultarClienteJuridico extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Insira o CNPJ do Cliente a ser consultado:");
 
+        campoconsultacnpj.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoconsultacnpjKeyTyped(evt);
+            }
+        });
+
         consultarcnpj.setText("Consultar");
         consultarcnpj.addActionListener(eventJ);
         consultarcnpj.setActionCommand("consultar");
+        consultarcnpj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarcnpjActionPerformed(evt);
+            }
+        });
 
         cancelarconsultajuridico.setText("Cancelar");
         cancelarconsultajuridico.addActionListener(eventJ);
@@ -67,6 +83,21 @@ public class ConsultarClienteJuridico extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void consultarcnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarcnpjActionPerformed
+        try {
+            SalvaLogs.escrever("Consulta Cliente Jurídico", "C:\\Users\\comp1\\Desktop\\logs.txt", true);
+        } catch (IOException ex) {
+            System.out.println("Erro");
+        }
+    }//GEN-LAST:event_consultarcnpjActionPerformed
+
+    private void campoconsultacnpjKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoconsultacnpjKeyTyped
+        String caracteres = "0987654321";// lista de caracters que devem ser aceitos
+        if (!caracteres.contains(evt.getKeyChar() + "")) {// se o caracter que gerou o evento estiver não estiver na lista
+            evt.consume();//aciona esse propriedade para eliminar a ação do evento
+        }
+    }//GEN-LAST:event_campoconsultacnpjKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

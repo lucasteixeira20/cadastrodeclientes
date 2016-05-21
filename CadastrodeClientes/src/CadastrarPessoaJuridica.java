@@ -1,8 +1,10 @@
+import java.io.IOException;
+
 
 public class CadastrarPessoaJuridica extends javax.swing.JInternalFrame {
 
 
-    private EventoCadastroJuridico eventCJ = new EventoCadastroJuridico(this);
+    private CadastroJuridicoListener eventCJ = new CadastroJuridicoListener(this);
     
     public CadastrarPessoaJuridica() {
         initComponents();
@@ -37,10 +39,26 @@ public class CadastrarPessoaJuridica extends javax.swing.JInternalFrame {
                 campoRazaoSocialActionPerformed(evt);
             }
         });
+        campoRazaoSocial.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoRazaoSocialKeyTyped(evt);
+            }
+        });
+
+        campocnpj.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campocnpjKeyTyped(evt);
+            }
+        });
 
         salvarjuridico.setText("Salvar");
         salvarjuridico.addActionListener(eventCJ);
         salvarjuridico.setActionCommand("salvar");
+        salvarjuridico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarjuridicoActionPerformed(evt);
+            }
+        });
 
         cancelarjuridico.setText("Cancelar");
         cancelarjuridico.addActionListener(new java.awt.event.ActionListener() {
@@ -56,6 +74,11 @@ public class CadastrarPessoaJuridica extends javax.swing.JInternalFrame {
         campotelefonej.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campotelefonejActionPerformed(evt);
+            }
+        });
+        campotelefonej.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campotelefonejKeyTyped(evt);
             }
         });
 
@@ -141,6 +164,41 @@ public class CadastrarPessoaJuridica extends javax.swing.JInternalFrame {
     private void campoemailjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoemailjActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoemailjActionPerformed
+
+    private void salvarjuridicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarjuridicoActionPerformed
+        try {
+            SalvaLogs.escrever("Cadastro Pessoa Jurídica", "C:\\Users\\comp1\\Desktop\\logs.txt", true);
+        } catch (IOException ex) {
+            System.out.println("Erro");
+        }
+        //Adiciona dados ao objeto
+        ClienteJuridico CJ = new ClienteJuridico();
+        CJ.setRazaoSocial(campoRazaoSocial.getText());
+        CJ.setCNPJ(campocnpj.getText());
+        CJ.setTelefone(campotelefonej.getText());
+        CJ.setEmail(campoemailj.getText());
+    }//GEN-LAST:event_salvarjuridicoActionPerformed
+
+    private void campoRazaoSocialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoRazaoSocialKeyTyped
+        String caracteres = "abcdefghijklmnopqrstuvwyxz ";// lista de caracters que devem ser aceitos
+        if (!caracteres.contains(evt.getKeyChar() + "")) {// se o caracter que gerou o evento estiver não estiver na lista
+            evt.consume();//aciona esse propriedade para eliminar a ação do evento
+        }
+    }//GEN-LAST:event_campoRazaoSocialKeyTyped
+
+    private void campocnpjKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campocnpjKeyTyped
+        String caracteres = "0987654321";// lista de caracters que devem ser aceitos
+        if (!caracteres.contains(evt.getKeyChar() + "")) {// se o caracter que gerou o evento estiver não estiver na lista
+            evt.consume();//aciona esse propriedade para eliminar a ação do evento
+        }
+    }//GEN-LAST:event_campocnpjKeyTyped
+
+    private void campotelefonejKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campotelefonejKeyTyped
+        String caracteres = "0987654321";// lista de caracters que devem ser aceitos
+        if (!caracteres.contains(evt.getKeyChar() + "")) {// se o caracter que gerou o evento estiver não estiver na lista
+            evt.consume();//aciona esse propriedade para eliminar a ação do evento
+        }
+    }//GEN-LAST:event_campotelefonejKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

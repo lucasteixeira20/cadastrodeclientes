@@ -69,11 +69,17 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="cpfexcluir">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cpfexcluirKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="excluirfisico">
       <Properties>
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="excluirfisicoActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="excluirfisico.addActionListener(eventEF);&#xa;excluirfisico.setActionCommand(&quot;excluir&quot;);"/>
       </AuxValues>

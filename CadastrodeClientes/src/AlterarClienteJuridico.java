@@ -1,9 +1,14 @@
 
+
+
+import java.io.IOException;
+
+
 // * @author Lucas
  
 public class AlterarClienteJuridico extends javax.swing.JInternalFrame {
 
-    private EventoAlterarJuridico eventAJ = new EventoAlterarJuridico(this);
+    private AlterarJuridicoListener eventAJ = new AlterarJuridicoListener(this);
     public AlterarClienteJuridico() {
         initComponents();
     }
@@ -23,6 +28,12 @@ public class AlterarClienteJuridico extends javax.swing.JInternalFrame {
         setTitle("Alterar Cliente Juridico");
 
         jLabel1.setText("Insira o CNPJ do Cliente a ser alterado:");
+
+        campoconsultacpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoconsultacpfKeyTyped(evt);
+            }
+        });
 
         alterarclienteF.setText("Alterar");
         alterarclienteF.addActionListener(new java.awt.event.ActionListener() {
@@ -72,8 +83,19 @@ public class AlterarClienteJuridico extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void alterarclienteFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarclienteFActionPerformed
-     
+        try {
+            SalvaLogs.escrever("Alterar Cliente Jurídico", "C:\\Users\\comp1\\Desktop\\logs.txt", true);
+        } catch (IOException ex) {
+            System.out.println("Erro");
+        }
     }//GEN-LAST:event_alterarclienteFActionPerformed
+
+    private void campoconsultacpfKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoconsultacpfKeyTyped
+        String caracteres = "0987654321";// lista de caracters que devem ser aceitos
+        if (!caracteres.contains(evt.getKeyChar() + "")) {// se o caracter que gerou o evento estiver não estiver na lista
+            evt.consume();//aciona esse propriedade para eliminar a ação do evento
+        }
+    }//GEN-LAST:event_campoconsultacpfKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

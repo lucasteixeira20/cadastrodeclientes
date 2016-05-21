@@ -1,20 +1,29 @@
 
+
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
-    public Login() {
+    public Login() throws IOException {
         initComponents();
         Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
         // Centralizar janela
         setLocation((tela.width - this.getSize().width) / 2,
                 (tela.height - this.getSize().height) / 2);
+        File f = new File("C:\\Users\\comp1\\Desktop\\login.txt");
+        if (f.exists() && !f.isDirectory()) {
+            campologin.setText(ReadFromFile.ler("C:\\Users\\comp1\\Desktop\\login.txt"));
+        }
     }
 
     /**
@@ -114,21 +123,30 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarloginActionPerformed
 
     private void entrarloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarloginActionPerformed
-        if (campologin.getText().equals("admin") && camposenha.getText().equals("admin")) {
-            dispose();
-            Janela janela = new Janela();
 
-            janela.setVisible(true);
-        } else {
-            final JDialog erro = new JDialog();
-            erro.setAlwaysOnTop(true);
-            JOptionPane.showMessageDialog(erro, "Login ou senha incorretos!", "Erro", JOptionPane.ERROR_MESSAGE);
+        dispose();
+        try {
+            WriteToFile.escrever(campologin.getText(), "C:\\Users\\comp1\\Desktop\\login.txt");
+        } catch (IOException ex) {
+            System.out.println("Erro");
         }
+        Janela janela = new Janela();
+        janela.setVisible(true);
+        try {
+            SalvaLogs.escrever("Login", "C:\\Users\\comp1\\Desktop\\logs.txt", false);
+        } catch (IOException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        /*final JDialog erro = new JDialog();
+            erro.setAlwaysOnTop(true);
+        /*final JDialog erro = new JDialog();
+            erro.setAlwaysOnTop(true);
+            JOptionPane.showMessageDialog(erro, "Login ou senha incorretos!", "Erro", JOptionPane.ERROR_MESSAGE);*/
     }//GEN-LAST:event_entrarloginActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+        /**
+         * @param args the command line arguments
+         */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -152,17 +170,22 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                try {
+                    new Login().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField campologin;
+    public static javax.swing.JTextField campologin;
     private javax.swing.JPasswordField camposenha;
     private javax.swing.JButton cancelarlogin;
     private javax.swing.JButton entrarlogin;

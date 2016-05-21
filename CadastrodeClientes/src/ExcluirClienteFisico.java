@@ -1,7 +1,12 @@
 
+
+
+import java.io.IOException;
+
+
 public class ExcluirClienteFisico extends javax.swing.JInternalFrame {
 
-    private EventoExcluirFisico eventEF = new EventoExcluirFisico(this);
+    private ExcluirFisicoListener eventEF = new ExcluirFisicoListener(this);
     public ExcluirClienteFisico() {
         initComponents();
     }
@@ -26,9 +31,20 @@ public class ExcluirClienteFisico extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Insira o CPF a ser excluido:");
 
+        cpfexcluir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cpfexcluirKeyTyped(evt);
+            }
+        });
+
         excluirfisico.setText("Excluir");
         excluirfisico.addActionListener(eventEF);
         excluirfisico.setActionCommand("excluir");
+        excluirfisico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirfisicoActionPerformed(evt);
+            }
+        });
 
         cancelarexcluirfisico.setText("Cancelar");
         cancelarexcluirfisico.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +93,21 @@ public class ExcluirClienteFisico extends javax.swing.JInternalFrame {
     private void cancelarexcluirfisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarexcluirfisicoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelarexcluirfisicoActionPerformed
+
+    private void excluirfisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirfisicoActionPerformed
+        try {
+            SalvaLogs.escrever("Excluir Cliente Físico", "C:\\Users\\comp1\\Desktop\\logs.txt", true);
+        } catch (IOException ex) {
+            System.out.println("Erro");
+        }
+    }//GEN-LAST:event_excluirfisicoActionPerformed
+
+    private void cpfexcluirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpfexcluirKeyTyped
+        String caracteres = "0987654321";// lista de caracters que devem ser aceitos
+        if (!caracteres.contains(evt.getKeyChar() + "")) {// se o caracter que gerou o evento estiver não estiver na lista
+            evt.consume();//aciona esse propriedade para eliminar a ação do evento
+        }
+    }//GEN-LAST:event_cpfexcluirKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

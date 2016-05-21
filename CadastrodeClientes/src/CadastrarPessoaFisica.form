@@ -105,17 +105,22 @@
     <Component class="javax.swing.JTextField" name="camponomef">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="camponomefActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="camponomefKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="campocpf">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campocpfActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campocpfKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="salvarfisico">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salvarfisicoActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="salvarfisico.addActionListener(eventCF);&#xa;salvarfisico.setActionCommand(&quot;salvar&quot;);"/>
       </AuxValues>
@@ -136,6 +141,7 @@
     <Component class="javax.swing.JTextField" name="campotelefonef">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campotelefonefActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campotelefonefKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">

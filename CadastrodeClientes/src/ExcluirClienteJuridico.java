@@ -1,3 +1,8 @@
+
+
+
+import java.io.IOException;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,7 +15,7 @@
  */
 public class ExcluirClienteJuridico extends javax.swing.JInternalFrame {
 
-    private EventoExcluirJuridico eventEJ = new EventoExcluirJuridico(this);
+    private ExcluirJuridicoListener eventEJ = new ExcluirJuridicoListener(this);
     public ExcluirClienteJuridico() {
         initComponents();
     }
@@ -35,9 +40,20 @@ public class ExcluirClienteJuridico extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Insira o CNPJ a ser excluido:");
 
+        cnpjexcluir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cnpjexcluirKeyTyped(evt);
+            }
+        });
+
         excluirjuridico.setText("Excluir");
         excluirjuridico.addActionListener(eventEJ);
         excluirjuridico.setActionCommand("excluir");
+        excluirjuridico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirjuridicoActionPerformed(evt);
+            }
+        });
 
         cancelarjuridico.setText("Cancelar");
         cancelarjuridico.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +102,21 @@ public class ExcluirClienteJuridico extends javax.swing.JInternalFrame {
     private void cancelarjuridicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarjuridicoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelarjuridicoActionPerformed
+
+    private void excluirjuridicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirjuridicoActionPerformed
+        try {
+            SalvaLogs.escrever("Excluir Cliente Jurídico", "C:\\Users\\comp1\\Desktop\\logs.txt", true);
+        } catch (IOException ex) {
+            System.out.println("Erro");
+        }
+    }//GEN-LAST:event_excluirjuridicoActionPerformed
+
+    private void cnpjexcluirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cnpjexcluirKeyTyped
+        String caracteres = "0987654321";// lista de caracters que devem ser aceitos
+        if (!caracteres.contains(evt.getKeyChar() + "")) {// se o caracter que gerou o evento estiver não estiver na lista
+            evt.consume();//aciona esse propriedade para eliminar a ação do evento
+        }
+    }//GEN-LAST:event_cnpjexcluirKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

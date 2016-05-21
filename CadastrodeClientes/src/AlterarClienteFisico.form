@@ -65,6 +65,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="campoconsultacpf">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoconsultacpfKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="alterarclienteF">
       <Properties>

@@ -1,9 +1,14 @@
 
+
+
+import java.io.IOException;
+
+
 // * @author Lucas
  
 public class ConsultarClienteFisico extends javax.swing.JInternalFrame {
 
-    private EventoConsultarFisico eventF = new EventoConsultarFisico(this);
+    private ConsultarFisicoListener eventF = new ConsultarFisicoListener(this);
     public ConsultarClienteFisico() {
         initComponents();
     }
@@ -23,6 +28,12 @@ public class ConsultarClienteFisico extends javax.swing.JInternalFrame {
         setTitle("Consultar Cliente Físico");
 
         jLabel1.setText("Insira o CPF do Cliente a ser consultado:");
+
+        campoconsultacpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoconsultacpfKeyTyped(evt);
+            }
+        });
 
         consultarcpf.setText("Consultar");
         consultarcpf.addActionListener(new java.awt.event.ActionListener() {
@@ -72,8 +83,19 @@ public class ConsultarClienteFisico extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void consultarcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarcpfActionPerformed
-     
+        try {
+            SalvaLogs.escrever("Consulta Cliente Físico", "C:\\Users\\comp1\\Desktop\\logs.txt", true);
+        } catch (IOException ex) {
+            System.out.println("Erro");
+        }
     }//GEN-LAST:event_consultarcpfActionPerformed
+
+    private void campoconsultacpfKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoconsultacpfKeyTyped
+        String caracteres = "0987654321";// lista de caracters que devem ser aceitos
+        if (!caracteres.contains(evt.getKeyChar() + "")) {// se o caracter que gerou o evento estiver não estiver na lista
+            evt.consume();//aciona esse propriedade para eliminar a ação do evento
+        }
+    }//GEN-LAST:event_campoconsultacpfKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
