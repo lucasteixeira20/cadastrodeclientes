@@ -41,6 +41,9 @@ public class CadastroClienteListener implements ActionListener {
                 CJ.setTelefone(cadastraC.campotelefone.getText());
                 CJ.setEmail(cadastraC.campoemail.getText());
             }
+            //Cadastra cliente no banco
+            
+            
 
         } else if ("consultar".equals(e.getActionCommand())) {
             try {

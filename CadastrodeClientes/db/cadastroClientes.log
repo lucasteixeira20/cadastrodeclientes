@@ -1,0 +1,26 @@
+/*C2*/SET SCHEMA PUBLIC
+CONNECT USER SA
+CREATE TABLE Clientes(\u000anome varchar(30) not null,\u000atelefone  varchar(30) not null,\u000aemail varchar(30)  not null\u000a)\u000a\u000a
+INSERT INTO CLIENTES VALUES('eder','1231456','jioasd@54dfmkj')
+SET AUTOCOMMIT FALSE
+DELETE FROM CLIENTES WHERE NOME='eder' AND TELEFONE='1231456' AND EMAIL='jioasd@54dfmkj'
+INSERT INTO CLIENTES VALUES('eder','1231456','Avenida@jklsdsd.com')
+SET AUTOCOMMIT TRUE
+CREATE TABLE ClientesFisico(\u000acpf integer not null\u000a)\u000a\u000a
+INSERT INTO CLIENTESFISICO VALUES(884111441)
+drop table clientes
+drop table clientesfisico
+CREATE TABLE Clientes(\u000aId int NOT NULL PRIMARY KEY,\u000anome varchar(30) not null,\u000atelefone  varchar(30) not null,\u000aemail varchar(30)  not null\u000a)
+drop table clientes
+CREATE TABLE Clientes(\u000aid INTEGER IDENTITY PRIMARY KEY,\u000anome varchar(30) not null,\u000atelefone  varchar(30) not null,\u000aemail varchar(30)  not null\u000a)
+INSERT INTO CLIENTES VALUES(0,'eder','aaa@gmail.com','eder@teste.com')
+INSERT INTO CLIENTES VALUES(1,'edddder','aaa@gmail.com','eder@teste.com')
+CREATE TABLE ClienteFisico(\u000aCodigoCliente integer not null,\u000acpf integer not null,\u000aFOREIGN KEY(CodigoCliente) REFERENCES Clientes(id)\u000a)
+INSERT INTO CLIENTEFISICO VALUES(0,23423423)
+drop table ClienteFisico
+CREATE TABLE ClienteFisico(\u000aCodigoCliente integer not null,\u000acpf varchar(30) not null,\u000aFOREIGN KEY(CodigoCliente) REFERENCES Clientes(id)\u000a)
+CREATE TABLE ClienteJuridico(\u000aCodigoCliente integer not null,\u000acnpj varchar(30) not null,\u000aFOREIGN KEY(CodigoCliente) REFERENCES Clientes(id)\u000a)
+CREATE TABLE Produto(\u000aEAN INTEGER IDENTITY PRIMARY KEY,\u000anome varchar(30) not null,\u000avalor float not null,\u000aquantidade integer not null\u000a)
+INSERT INTO CLIENTEJURIDICO VALUES(1,'123456789')
+INSERT INTO PRODUTO VALUES(1234567,'Luckitu',10.05E0,100)
+INSERT INTO CLIENTEFISICO VALUES(1,'123456789')
