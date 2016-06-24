@@ -213,8 +213,8 @@ public class ConsultarClienteJIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JRadioButton pessoaFisicaalteracao;
-    private javax.swing.JRadioButton pessoaJuridicaalteracao;
+    public javax.swing.JRadioButton pessoaFisicaalteracao;
+    public javax.swing.JRadioButton pessoaJuridicaalteracao;
     private javax.swing.JButton salvarclientealteracao;
     // End of variables declaration//GEN-END:variables
 }
