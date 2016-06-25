@@ -10,6 +10,10 @@ public class ConsultarClienteJIF extends javax.swing.JInternalFrame {
     public ConsultarClienteJIF() {
         initComponents();
     }
+    
+    public void setId(int id){
+        eventC.setId(id);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

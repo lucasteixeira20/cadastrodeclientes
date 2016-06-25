@@ -1,7 +1,6 @@
 package DAO;
 
 import bean.Cliente;
-import bean.ClienteFisico;
 import bean.ClienteJuridico;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,15 +9,29 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ClienteJuridicoDAO {
+    
+    private int id;
 
-    public void delete(ClienteFisico cliente) throws Exception {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+    public void delete(int id) throws Exception {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
             conn = Conexao.getConnection();
-            String sql = "delete from agenda where nome = ?";
+            String sql = "delete from clientejuridico where codigocliente = ?";
             ps = conn.prepareStatement(sql);
-            ps.setString(1, cliente.getNome());
+            ps.setInt(1, id);
+            ps.execute();
+            
+            sql = "delete from clientes where id = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
             ps.execute();
 
             conn.commit();
@@ -100,18 +113,30 @@ public class ClienteJuridicoDAO {
         }
     }
 
-    public void update(Cliente cliente) throws Exception {
+    public void update(ClienteJuridico cliente) throws Exception {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
             conn = Conexao.getConnection();
-            String sql = "update agenda set nome = ?, endereco = ?, telefone = ? where nome = ?";
+            String sql = "update clientejuridico set cnpj = ? where codigocliente = ?";
             ps = conn.prepareStatement(sql);
+            
+            ps.setString(1, cliente.getCNPJ());
+            ps.setInt(2, id);
+            ps.execute();
+            
+            sql = "update clientes set nome = ?, telefone = ?, email = ? where id = ?";
+            ps = conn.prepareStatement(sql);
+            
             ps.setString(1, cliente.getNome());
             ps.setString(2, cliente.getTelefone());
             ps.setString(3, cliente.getEmail());
+            ps.setInt(4, id);
             ps.execute();
-
+            
+            System.out.println(id);
+            System.out.println(cliente.getNome());
+            
             conn.commit();
         } catch (SQLException e) {
             System.out.println("ERRO: " + e.getMessage());
@@ -188,7 +213,7 @@ public class ClienteJuridicoDAO {
     public ClienteJuridico getCliente(ArrayList<String> DadosConsulta) {
         Connection conn = null;
         PreparedStatement ps = null;
-        int id = -1;
+        id = -1;
         String nome = null, telefone = null, email = null, cnpj = null;
         String campos[] = {"nome", "telefone", "email"};
         String condicoes = "";

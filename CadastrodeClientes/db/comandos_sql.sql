@@ -5,6 +5,11 @@ telefone  varchar(30) not null,
 email varchar(30)  not null
 )
 
+CREATE TABLE Login(
+login varchar(30) PRIMARY KEY,
+senha varchar(30) not null
+)
+
 CREATE TABLE ClienteFisico(
 CodigoCliente integer not null,
 cpf varchar(30) not null,
@@ -22,6 +27,9 @@ values(884111441)
 
 insert into ClienteFisico(cpf)
 values(884111441)
+
+insert into login(login,senha)
+values('Eder','123')
 
 select * from ClientesFisico
 

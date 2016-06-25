@@ -1,5 +1,6 @@
 package view;
 
+import DAO.Conexao;
 import files.EscreverArquivo;
 import files.SalvaLogs;
 import files.LerArquivo;
@@ -7,8 +8,13 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
@@ -140,29 +146,75 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarloginActionPerformed
 
     private void entrarloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarloginActionPerformed
-        dispose();
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        String sql;
+        ResultSet rs;
+        String login = null;
+        String senha = null;
+
         try {
-            EscreverArquivo.escrever(campologin.getText(), "login.txt");
-        } catch (IOException ex) {
-            System.out.println("Erro");
+            conn = Conexao.getConnection();
+            sql = "select login,senha from login where login = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, campologin.getText());
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                login = rs.getString(1);
+                senha = rs.getString(2);
+            }
+            
+            if(login == null)
+            {
+                 JOptionPane.showMessageDialog(this, "Login não existe!", "Erro!", JOptionPane.ERROR_MESSAGE);
+                 return;
+            }
+            if (senha.equals(camposenha.getText())) {
+                dispose();
+                Janela janela = new Janela();
+                janela.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Senha errada!", "Erro!", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("ERRO: " + e.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
         }
-        Janela janela = new Janela();
-        janela.setVisible(true);
-        try {
-            SalvaLogs.escrever("Login", "logs.txt", false);
-        } catch (IOException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        /*final JDialog erro = new JDialog();
-            erro.setAlwaysOnTop(true);
-        /*final JDialog erro = new JDialog();
-            erro.setAlwaysOnTop(true);
-            JOptionPane.showMessageDialog(erro, "Login ou senha incorretos!", "Erro", JOptionPane.ERROR_MESSAGE);*/
+
+//        try {
+//            SalvaLogs.escrever("Login", "logs.txt", false);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//        try {
+//            EscreverArquivo.escrever(campologin.getText(), "login.txt");
+//        } catch (IOException ex) {
+//            System.out.println("Erro");
+//        }
     }//GEN-LAST:event_entrarloginActionPerformed
 
-        /**
-         * @param args the command line arguments
-         */
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

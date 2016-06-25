@@ -55,6 +55,10 @@ public class CadastroClienteListener implements ActionListener {
 
                 try {
                     cfDAO.insert(CF);
+                    cadastraC.camponomerazao.setText("");
+                    cadastraC.campocpfcnpj.setText("");
+                    cadastraC.campotelefone.setText("");
+                    cadastraC.campoemail.setText("");
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Erro ao cadastrar cliente físico!");
                 }
@@ -66,6 +70,10 @@ public class CadastroClienteListener implements ActionListener {
 
                 try {
                     cjDAO.insert(CJ);
+                    cadastraC.camponomerazao.setText("");
+                    cadastraC.campocpfcnpj.setText("");
+                    cadastraC.campotelefone.setText("");
+                    cadastraC.campoemail.setText("");
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Erro ao cadastrar cliente jurídico!");
                 }
@@ -94,11 +102,15 @@ public class CadastroClienteListener implements ActionListener {
             //se encontrar um cliente físico
             if (CF != null) {
                 ConsultarClienteJIF consultaC = new ConsultarClienteJIF();
+                
+                consultaC.setId(cfDAO.getId());
                 consultaC.camponomerazao.setText(CF.getNome());
                 consultaC.campocpfcnpj.setText(CF.getCPF());
                 consultaC.campotelefone.setText(CF.getTelefone());
                 consultaC.campoemail.setText(CF.getEmail());
                 consultaC.pessoaFisicaalteracao.setSelected(true);
+                consultaC.pessoaFisicaalteracao.setEnabled(false);
+                consultaC.pessoaJuridicaalteracao.setEnabled(false);
                 Janela.gerarJIF(consultaC);
                 try {
                     SalvaLogs.escrever("Consulta Cliente", "logs.txt", true);
@@ -111,11 +123,14 @@ public class CadastroClienteListener implements ActionListener {
             CJ = cjDAO.getCliente(DadosConsulta);
             if (CJ != null) {
                 ConsultarClienteJIF consultaC = new ConsultarClienteJIF();
+                consultaC.setId(cjDAO.getId());
                 consultaC.camponomerazao.setText(CJ.getNome());
                 consultaC.campocpfcnpj.setText(CJ.getCNPJ());
                 consultaC.campotelefone.setText(CJ.getTelefone());
                 consultaC.campoemail.setText(CJ.getEmail());
                 consultaC.pessoaJuridicaalteracao.setSelected(true);
+                consultaC.pessoaFisicaalteracao.setEnabled(false);
+                consultaC.pessoaJuridicaalteracao.setEnabled(false);
                 Janela.gerarJIF(consultaC);
                 try {
                     SalvaLogs.escrever("Consulta Cliente", "logs.txt", true);
