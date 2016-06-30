@@ -24,8 +24,8 @@ public class ConsultarProdutoJIF extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         campoEAN = new javax.swing.JTextField();
         camponomeProduto = new javax.swing.JTextField();
-        cadastraProduto = new javax.swing.JButton();
-        cancelarProduto = new javax.swing.JButton();
+        consultaProduto = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
 
@@ -51,53 +51,56 @@ public class ConsultarProdutoJIF extends javax.swing.JInternalFrame {
             }
         });
 
-        cadastraProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search-16.png"))); // NOI18N
-        cadastraProduto.setText("Consultar");
-        cadastraProduto.addActionListener(eventP);
-        cadastraProduto.setActionCommand("consultar");
+        consultaProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search-16.png"))); // NOI18N
+        consultaProduto.setText("Consultar");
+        consultaProduto.addActionListener(eventP);
+        consultaProduto.setActionCommand("consultar");
 
-        cancelarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancel-16.png"))); // NOI18N
-        cancelarProduto.setText("Fechar");
-        cancelarProduto.addActionListener(eventP);
-        cancelarProduto.setActionCommand("fechar");
+        cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancel-16.png"))); // NOI18N
+        cancelar.setText("Cancelar");
+        cancelar.addActionListener(eventP);
+        cancelar.setActionCommand("cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(campoEAN, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(camponomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(campoEAN, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(camponomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(cadastraProduto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancelarProduto)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(80, 80, 80)
+                .addComponent(consultaProduto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cancelar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(campoEAN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -105,13 +108,13 @@ public class ConsultarProdutoJIF extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(camponomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(60, 60, 60)
+                .addGap(50, 50, 50)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cadastraProduto)
-                    .addComponent(cancelarProduto))
-                .addGap(25, 25, 25))
+                    .addComponent(consultaProduto)
+                    .addComponent(cancelar))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
@@ -126,10 +129,10 @@ public class ConsultarProdutoJIF extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_camponomeProdutoKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cadastraProduto;
     public javax.swing.JTextField campoEAN;
     public javax.swing.JTextField camponomeProduto;
-    private javax.swing.JButton cancelarProduto;
+    private javax.swing.JButton cancelar;
+    private javax.swing.JButton consultaProduto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;

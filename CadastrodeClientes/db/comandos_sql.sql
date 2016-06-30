@@ -5,11 +5,6 @@ telefone  varchar(30) not null,
 email varchar(30)  not null
 )
 
-CREATE TABLE Login(
-login varchar(30) PRIMARY KEY,
-senha varchar(30) not null
-)
-
 CREATE TABLE ClienteFisico(
 CodigoCliente integer not null,
 cpf varchar(30) not null,
@@ -21,6 +16,20 @@ CodigoCliente integer not null,
 cnpj varchar(30) not null,
 FOREIGN KEY(CodigoCliente) REFERENCES Clientes(id)
 )
+
+CREATE TABLE Produto(
+EAN varchar(30) PRIMARY KEY,
+nome varchar(30) not null,
+valor float not null,
+quantidade varchar(30) not null
+)
+
+CREATE TABLE Login(
+login varchar(30) PRIMARY KEY,
+senha varchar(30) not null
+)
+
+
 
 insert into ClienteFisico(cpf)
 values(884111441)

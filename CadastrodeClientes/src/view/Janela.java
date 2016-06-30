@@ -25,6 +25,8 @@ public class Janela extends javax.swing.JFrame {
         menuclientes = new javax.swing.JMenu();
         cadastraProduto = new javax.swing.JMenuItem();
         consultaProduto = new javax.swing.JMenuItem();
+        menuclientes1 = new javax.swing.JMenu();
+        cadastraProduto1 = new javax.swing.JMenuItem();
         sobre = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
@@ -66,7 +68,24 @@ public class Janela extends javax.swing.JFrame {
 
         jMenuBar1.add(menuclientes);
 
+        menuclientes1.setText("Login");
+
+        cadastraProduto1.setText("Cadastrar Novo Login");
+        cadastraProduto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastraProduto1ActionPerformed(evt);
+            }
+        });
+        menuclientes1.add(cadastraProduto1);
+
+        jMenuBar1.add(menuclientes1);
+
         sobre.setText("Sobre");
+        sobre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sobreMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(sobre);
 
         setJMenuBar(jMenuBar1);
@@ -105,6 +124,16 @@ public class Janela extends javax.swing.JFrame {
         ConsultarProdutoJIF consultaP = new ConsultarProdutoJIF();
         gerarJIF(consultaP);
     }//GEN-LAST:event_consultaProdutoActionPerformed
+
+    private void cadastraProduto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraProduto1ActionPerformed
+        CadastrarLoginJIF cadastraLogin = new CadastrarLoginJIF();
+        gerarJIF(cadastraLogin);
+    }//GEN-LAST:event_cadastraProduto1ActionPerformed
+
+    private void sobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sobreMouseClicked
+        SobreJIF sobre = new SobreJIF();
+        gerarJIF(sobre);
+    }//GEN-LAST:event_sobreMouseClicked
 
     /**
      * @param args the command line arguments
@@ -149,12 +178,14 @@ public class Janela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem cadastraProduto;
+    private javax.swing.JMenuItem cadastraProduto1;
     private javax.swing.JMenuItem consultaProduto;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menucadastro;
     private javax.swing.JMenu menuclientes;
+    private javax.swing.JMenu menuclientes1;
     private javax.swing.JMenuItem menupessoafisica;
     private javax.swing.JMenu sobre;
     // End of variables declaration//GEN-END:variables

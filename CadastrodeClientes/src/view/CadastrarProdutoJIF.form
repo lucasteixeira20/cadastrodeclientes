@@ -134,7 +134,7 @@
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="cadastraProduto.addActionListener(eventCF);&#xa;cadastraProduto.setActionCommand(&quot;cadastrar&quot;);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="cadastraProduto.addActionListener(eventCF);&#xa;cadastraProduto.setActionCommand(&quot;salvar&quot;);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="cancelarProduto">

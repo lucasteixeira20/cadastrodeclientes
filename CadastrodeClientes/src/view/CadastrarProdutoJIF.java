@@ -56,7 +56,7 @@ public class CadastrarProdutoJIF extends javax.swing.JInternalFrame {
         cadastraProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Checked-16.png"))); // NOI18N
         cadastraProduto.setText("Salvar");
         cadastraProduto.addActionListener(eventCF);
-        cadastraProduto.setActionCommand("cadastrar");
+        cadastraProduto.setActionCommand("salvar");
 
         cancelarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancel-16.png"))); // NOI18N
         cancelarProduto.setText("Cancelar");

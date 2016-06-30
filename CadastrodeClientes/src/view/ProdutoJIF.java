@@ -1,5 +1,6 @@
 package view;
 
+import bean.Produto;
 import listener.ProdutoListener;
 import validacoes.ImpedirCaracteres;
 
@@ -64,9 +65,9 @@ public class ProdutoJIF extends javax.swing.JInternalFrame {
         cadastraProduto.setActionCommand("salvar");
 
         cancelarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancel-16.png"))); // NOI18N
-        cancelarProduto.setText("Fechar");
+        cancelarProduto.setText("Cancelar");
         cancelarProduto.addActionListener(eventP);
-        cancelarProduto.setActionCommand("fechar");
+        cancelarProduto.setActionCommand("cancelar");
 
         jLabel3.setText("Valor:");
 
@@ -103,41 +104,39 @@ public class ProdutoJIF extends javax.swing.JInternalFrame {
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGap(11, 11, 11)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(11, 11, 11)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel1)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(campoEAN, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel2)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(camponomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGap(35, 35, 35))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                                            .addComponent(jLabel1)
                                             .addGap(18, 18, 18)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(campovalor)
-                                                .addComponent(campoqntProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(10, 10, 10)
-                                            .addComponent(jButton4))))
+                                            .addComponent(campoEAN, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel2)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(camponomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(35, 35, 35))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(56, 56, 56)
-                                    .addComponent(cadastraProduto)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cancelarProduto)
-                                    .addGap(41, 41, 41)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(campovalor)
+                                        .addComponent(campoqntProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(10, 10, 10)
+                                    .addComponent(jButton4)))
                             .addGap(28, 28, 28))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(jSeparator1)
                             .addContainerGap()))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(cadastraProduto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cancelarProduto)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,15 +163,14 @@ public class ProdutoJIF extends javax.swing.JInternalFrame {
                             .addComponent(jLabel4)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)))
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cadastraProduto)
-                    .addComponent(cancelarProduto))
-                .addGap(25, 25, 25))
+                    .addComponent(cancelarProduto)
+                    .addComponent(cadastraProduto))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -216,4 +214,12 @@ public class ProdutoJIF extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
+
+    public void setProduto(Produto p) {
+        campoEAN.setText(p.getCodEAN());
+        camponomeProduto.setText(p.getNome());
+        campovalor.setText(String.valueOf(p.getValor()));
+        campoqntProduto.setText(Integer.toString(p.getQuantidade()));
+        eventP.setProduto(p);
+    }
 }

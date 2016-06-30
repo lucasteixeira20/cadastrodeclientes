@@ -165,20 +165,7 @@ public class Login extends javax.swing.JFrame {
                 login = rs.getString(1);
                 senha = rs.getString(2);
             }
-            
-            if(login == null)
-            {
-                 JOptionPane.showMessageDialog(this, "Login não existe!", "Erro!", JOptionPane.ERROR_MESSAGE);
-                 return;
-            }
-            if (senha.equals(camposenha.getText())) {
-                dispose();
-                Janela janela = new Janela();
-                janela.setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(this, "Senha errada!", "Erro!", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
+            conn.commit();
 
         } catch (SQLException e) {
             System.out.println("ERRO: " + e.getMessage());
@@ -199,17 +186,29 @@ public class Login extends javax.swing.JFrame {
             }
         }
 
-//        try {
-//            SalvaLogs.escrever("Login", "logs.txt", false);
-//        } catch (IOException ex) {
-//            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        try {
-//            EscreverArquivo.escrever(campologin.getText(), "login.txt");
-//        } catch (IOException ex) {
-//            System.out.println("Erro");
-//        }
+        if (login == null) {
+            JOptionPane.showMessageDialog(this, "Login não existe!", "Erro!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (senha.equals(camposenha.getText())) {
+            try {
+                SalvaLogs.escrever("Login", "logs.txt", false);
+            } catch (IOException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+                EscreverArquivo.escrever(campologin.getText(), "login.txt");
+            } catch (IOException ex) {
+                System.out.println("Erro");
+            }
+            dispose();
+            Janela janela = new Janela();
+            janela.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Senha errada!", "Erro!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
     }//GEN-LAST:event_entrarloginActionPerformed
 
     /**

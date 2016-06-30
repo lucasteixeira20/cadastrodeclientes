@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import static sun.security.jgss.GSSUtil.login;
 
 public class ClienteFisicoDAO {
     
@@ -118,11 +120,7 @@ public class ClienteFisicoDAO {
         try {
             conn = Conexao.getConnection();
             String sql = "update ClienteFisico set cpf = ? where codigocliente = ?";
-            
-            
-            
-            //String sql = "update ClienteFisico set nome = ?, cpf = ?, telefone = ?, email = ?, where nome = ? AND cpf = ? AND telefone = ? AND email = ?";
-            
+
             ps = conn.prepareStatement(sql);
             
             ps.setString(1, cliente.getCPF());
@@ -131,9 +129,6 @@ public class ClienteFisicoDAO {
             
             sql = "update clientes set nome = ?, telefone = ?, email = ? where id = ?";
             
-            
-            //String sql = "update ClienteFisico set nome = ?, cpf = ?, telefone = ?, email = ?, where nome = ? AND cpf = ? AND telefone = ? AND email = ?";
-            
             ps = conn.prepareStatement(sql);
             
             ps.setString(1, cliente.getNome());
@@ -141,9 +136,6 @@ public class ClienteFisicoDAO {
             ps.setString(3, cliente.getEmail());
             ps.setInt(4, id);
             ps.execute();
-            
-            System.out.println(id);
-            System.out.println(cliente.getNome());
             
             conn.commit();
         } catch (SQLException e) {
@@ -357,5 +349,68 @@ public class ClienteFisicoDAO {
             }
         }
         return -1;
+    }
+    
+    //verifica se já existe este cliente físico
+    public boolean verificaClienteFisico(ClienteFisico CF) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        String nome = null, cpf = null;
+        try {
+            conn = Conexao.getConnection();
+            String sql = "select nome from clientes where nome = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, CF.getNome());
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                nome = rs.getString(1);
+            }
+            
+            sql = "select cpf from clientefisico where cpf = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, CF.getCPF());
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                cpf = rs.getString(1);
+            }
+            conn.commit();
+        } catch (SQLException e) {
+            System.out.println("ERRO: " + e.getMessage());
+
+            if (conn != null) {
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+        }
+        if (nome != null) {
+            JOptionPane.showMessageDialog(null, "Cliente "+nome+" já existe!", "Erro!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (cpf != null) {
+            JOptionPane.showMessageDialog(null, "Este CPF: "+cpf+" já existe!", "Erro!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
     }
 }

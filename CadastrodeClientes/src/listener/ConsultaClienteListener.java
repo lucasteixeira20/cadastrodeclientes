@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import view.ConsultarClienteJIF;
 
 public class ConsultaClienteListener implements ActionListener {
@@ -57,7 +58,7 @@ public class ConsultaClienteListener implements ActionListener {
                     Logger.getLogger(ConsultaClienteListener.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-
+            JOptionPane.showMessageDialog(null, "Cliente modificado!");
             try {
                 SalvaLogs.escrever("Alterou Cliente", "logs.txt", true);
             } catch (IOException ex) {
@@ -86,7 +87,8 @@ public class ConsultaClienteListener implements ActionListener {
                     Logger.getLogger(ConsultaClienteListener.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-
+            consultaC.dispose();
+            JOptionPane.showMessageDialog(null, "Cliente excluído!");
             try {
                 SalvaLogs.escrever("Excluiu Cliente", "logs.txt", true);
             } catch (IOException ex) {

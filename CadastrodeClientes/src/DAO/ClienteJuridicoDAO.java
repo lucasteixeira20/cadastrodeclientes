@@ -7,9 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class ClienteJuridicoDAO {
-    
+
     private int id;
 
     public void setId(int id) {
@@ -19,6 +20,7 @@ public class ClienteJuridicoDAO {
     public int getId() {
         return id;
     }
+
     public void delete(int id) throws Exception {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -28,7 +30,7 @@ public class ClienteJuridicoDAO {
             ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             ps.execute();
-            
+
             sql = "delete from clientes where id = ?";
             ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
@@ -120,23 +122,23 @@ public class ClienteJuridicoDAO {
             conn = Conexao.getConnection();
             String sql = "update clientejuridico set cnpj = ? where codigocliente = ?";
             ps = conn.prepareStatement(sql);
-            
+
             ps.setString(1, cliente.getCNPJ());
             ps.setInt(2, id);
             ps.execute();
-            
+
             sql = "update clientes set nome = ?, telefone = ?, email = ? where id = ?";
             ps = conn.prepareStatement(sql);
-            
+
             ps.setString(1, cliente.getNome());
             ps.setString(2, cliente.getTelefone());
             ps.setString(3, cliente.getEmail());
             ps.setInt(4, id);
             ps.execute();
-            
+
             System.out.println(id);
             System.out.println(cliente.getNome());
-            
+
             conn.commit();
         } catch (SQLException e) {
             System.out.println("ERRO: " + e.getMessage());
@@ -316,7 +318,7 @@ public class ClienteJuridicoDAO {
         }
         return null;
     }
-    
+
     //obtem o ultimo id cadastrado
     public int getIdCliente() {
         Connection conn = null;
@@ -350,5 +352,67 @@ public class ClienteJuridicoDAO {
             }
         }
         return -1;
+    }
+
+    public boolean verificaClienteJuridico(ClienteJuridico CJ) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        String nome = null, cnpj = null;
+        try {
+            conn = Conexao.getConnection();
+            String sql = "select nome from clientes where nome = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, CJ.getNome());
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                nome = rs.getString(1);
+            }
+
+            sql = "select cnpj from clientejuridico where cnpj = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, CJ.getCNPJ());
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                cnpj = rs.getString(1);
+            }
+            conn.commit();
+        } catch (SQLException e) {
+            System.out.println("ERRO: " + e.getMessage());
+
+            if (conn != null) {
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+        }
+        if (nome != null) {
+            JOptionPane.showMessageDialog(null, "Cliente " + nome + " já existe!", "Erro!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (cnpj != null) {
+            JOptionPane.showMessageDialog(null, "Este CNPJ: " + cnpj + " já existe!", "Erro!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
     }
 }

@@ -54,7 +54,17 @@ public class CadastroClienteListener implements ActionListener {
                 CF.setEmail(cadastraC.campoemail.getText());
 
                 try {
-                    cfDAO.insert(CF);
+
+                    if (cfDAO.verificaClienteFisico(CF)) {
+                        //cadastra cliente físico
+                        cfDAO.insert(CF);
+                        try {
+                            SalvaLogs.escrever("Cliente Cadastrado", "logs.txt", true);
+                        } catch (IOException ex) {
+                            System.out.println("Arquivo não encontrado!");
+                        }
+                        JOptionPane.showMessageDialog(null, "Cliente cadastrado com Sucesso!");
+                    }
                     cadastraC.camponomerazao.setText("");
                     cadastraC.campocpfcnpj.setText("");
                     cadastraC.campotelefone.setText("");
@@ -69,7 +79,16 @@ public class CadastroClienteListener implements ActionListener {
                 CJ.setEmail(cadastraC.campoemail.getText());
 
                 try {
-                    cjDAO.insert(CJ);
+                    if (cjDAO.verificaClienteJuridico(CJ)) {
+                        //cadastra cliente jurídico
+                        cjDAO.insert(CJ);
+                        try {
+                            SalvaLogs.escrever("Cliente Cadastrado", "logs.txt", true);
+                        } catch (IOException ex) {
+                            System.out.println("Arquivo não encontrado!");
+                        }
+                        JOptionPane.showMessageDialog(null, "Cliente cadastrado com Sucesso!");
+                    }
                     cadastraC.camponomerazao.setText("");
                     cadastraC.campocpfcnpj.setText("");
                     cadastraC.campotelefone.setText("");
@@ -78,13 +97,6 @@ public class CadastroClienteListener implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Erro ao cadastrar cliente jurídico!");
                 }
             }
-
-            try {
-                SalvaLogs.escrever("Cliente Cadastrado", "logs.txt", true);
-            } catch (IOException ex) {
-                System.out.println("Arquivo não encontrado!");
-            }
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com Sucesso!");
 
         } else if ("consultar".equals(e.getActionCommand())) {
             if (cadastraC.camponomerazao.getText().equals("") && cadastraC.campocpfcnpj.getText().equals("") && cadastraC.campotelefone.getText().equals("") && cadastraC.campoemail.getText().equals("")) {
@@ -102,7 +114,7 @@ public class CadastroClienteListener implements ActionListener {
             //se encontrar um cliente físico
             if (CF != null) {
                 ConsultarClienteJIF consultaC = new ConsultarClienteJIF();
-                
+
                 consultaC.setId(cfDAO.getId());
                 consultaC.camponomerazao.setText(CF.getNome());
                 consultaC.campocpfcnpj.setText(CF.getCPF());
@@ -119,7 +131,7 @@ public class CadastroClienteListener implements ActionListener {
                 }
                 return;
             }
-            
+
             CJ = cjDAO.getCliente(DadosConsulta);
             if (CJ != null) {
                 ConsultarClienteJIF consultaC = new ConsultarClienteJIF();
